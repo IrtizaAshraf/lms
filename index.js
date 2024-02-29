@@ -4,6 +4,7 @@ const app = express()
 const cors = require('cors')
 const mongoose = require('mongoose')
 const { getStudent, getSingleStudents, addStudent, deleteStudent, updateStudent } = require('./controllers/studentcontroller')
+const { getCourse,addCourse, editCourse, deleteCourse,getSingleCourse} =require('./controllers/coursecontroller')
 require('dotenv').config()
 
 
@@ -19,6 +20,8 @@ app.get('/', (req, res)=>{
     res.send('Hello world')
 });
 
+
+// Students Api for mongodb 
 app.get('/api/v1/students', getStudent);
 app.get('/api/v1/students/:id', getSingleStudents);
 app.post('/api/v1/students', addStudent);
@@ -26,11 +29,18 @@ app.delete('/api/v1/students/:id', deleteStudent);
 app.put('/api/v1/students/:id', updateStudent);
 
 
+// Course Apis for mongodb
+app.get('/api/v1/course', getCourse);
+app.get('/api/v1/course', getSingleCourse);
+app.post('/api/v1/course', addCourse);
+app.delete('/api/v1/course', deleteCourse);
+app.put('/api/v1/course', editCourse)
+
 
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI);
-        console.log("CONNECTED");
+        console.log("MONGODB CONNECTED");
     } catch (error) {
         console.log(error);
     }
