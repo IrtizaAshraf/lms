@@ -22,11 +22,11 @@ app.get('/', (req, res)=>{
 
 
 // Students Api for mongodb 
-app.get('/api/v1/students', getStudent);
-app.get('/api/v1/students/:id', getSingleStudents);
-app.post('/api/v1/students', addStudent);
-app.delete('/api/v1/students/:id', deleteStudent);
-app.put('/api/v1/students/:id', updateStudent);
+app.get("/api/v1/students", getStudent);
+app.get("/api/v1/students/:id", getSingleStudents);
+app.post("/api/v1/students", addStudent);
+app.delete("/api/v1/students/:id", deleteStudent);
+app.put("/api/v1/students/:id", updateStudent);
 
 
 // Course Apis for mongodb
